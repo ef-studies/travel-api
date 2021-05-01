@@ -17,7 +17,14 @@ class TravelsController < ApplicationController
   end
 
   def filters
-    { month: params[:month] }
+    {
+      month: params[:month],
+      departure_date: params[:departure_date],
+      return_date: params[:return_date],
+      locale: params[:locale],
+      origin: params[:origin],
+      destination: params[:destination]
+    }
   end
 end
 
