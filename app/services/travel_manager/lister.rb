@@ -1,22 +1,19 @@
 module TravelManager
   class Lister
-    attr_reader :filters, :month
+    attr_reader :filters
 
-    def list
-      if month.nil?
-       return Travel.all
-      else
-        Travel.where("cast(strftime('%m', departure_date) as int) = ?", month)
-        #TO DO pesquisa com duas colunas ou criar dois filtros? (return_date)
-      end
+    def initialize(filters={})
+      @filters = filters
     end
 
-    def initialize(filters)
-      @filters = filters
-      @month = filters[:month]
+    def list
+      Travel.all if empty_filters?
+    end
+
+    private
+
+    def empty_filters?
+      filters.values.all? { |x| x.nil? }
     end
   end
 end
-
-
-#Travel.where("cast(strftime('%Y', departure_date) as int) = ?", 2022)
