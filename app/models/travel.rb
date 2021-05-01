@@ -1,7 +1,14 @@
 class Travel < ApplicationRecord
-  scope :planning_travel, -> { where('departure_date > ?', Time.current.beginning_of_day) }
+  scope :planning_travels, -> { where('departure_date > ?', today) }
+  scope :travelling, -> { where('departure_date < ? and return_date > ?', today, today) }
+  scope :finished_travels, -> { where('return_date < ?', today) }
+  scope :with_locale, ->(locale) { where('origin = ? or destination = ?', locale, locale) }
+  scope :all_by_month, ->(month) {
+    where("cast(strftime('%m', departure_date) as int) = ? or cast(strftime('%m', return_date) as int) = ?", month, month) }
 
-  def month
-    strftime('%m')
+  private
+
+  def today
+    Time.current.beginning_of_day
   end
 end
