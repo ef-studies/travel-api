@@ -10,7 +10,7 @@ module TravelManager
     end
 
     def create
-      travel = Travel.create!(
+      Travel.create!(
         {
           destination: destination,
           origin: origin,
@@ -18,7 +18,6 @@ module TravelManager
           return_date: return_date 
         }
       )
-      travel
     end
   end
 end
