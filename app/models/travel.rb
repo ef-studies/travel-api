@@ -1,4 +1,7 @@
 class Travel < ApplicationRecord
+  validates :destination, :departure_date, :return_date, :departure_date, presence: true
+  # TO DO validação dos campos de data
+
   scope :planning_travels, -> { where('departure_date > ?', today) }
   scope :travelling, -> { where('departure_date < ? and return_date > ?', today, today) }
   scope :finished_travels, -> { where('return_date < ?', today) }

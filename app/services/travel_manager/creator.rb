@@ -10,7 +10,7 @@ module TravelManager
     end
 
     def create
-      Travel.create!(
+      Travel.create(
         {
           destination: destination,
           origin: origin,

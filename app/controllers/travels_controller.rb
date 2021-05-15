@@ -7,7 +7,9 @@ class TravelsController < ApplicationController
 
   def create
     creator = TravelManager::Creator.new(travel_params)
-    render json: creator.create
+    result = creator.create
+    return head :precondition_failed if result.invalid?
+    render json: result
   end
 
   private
@@ -27,5 +29,3 @@ class TravelsController < ApplicationController
     }
   end
 end
-
- #render json: creator.create, serializer: OrderSerializer::Model
