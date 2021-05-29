@@ -1,7 +1,7 @@
 describe TravelManager::Creator do
   let(:args) { build(:travel) }
   let(:object) { described_class.new(args) }
-  let(:result) { object.create }
+  let(:result) { object.build }
 
   describe "#create" do
     context 'when valid params' do

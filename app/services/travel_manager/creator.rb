@@ -9,6 +9,12 @@ module TravelManager
       @return_date = args[:return_date]
     end
 
+    def build
+      create
+    end
+
+    private
+
     def create
       Travel.create(
         {

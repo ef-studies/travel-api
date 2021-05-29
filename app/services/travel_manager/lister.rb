@@ -6,6 +6,13 @@ module TravelManager
       @filters = filters
     end
 
+
+    def build
+      list
+    end
+
+    private
+
     def list
       #Travel.all if empty_filters?
       query = {
@@ -22,7 +29,8 @@ module TravelManager
       search.result
     end
 
-    private
+
+
 
 #     def empty_filters?
 #       filters.values.all? { |filter| filter.nil? }

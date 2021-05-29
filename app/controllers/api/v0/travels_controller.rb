@@ -2,12 +2,12 @@ class Api::V0::TravelsController < ApplicationController
 #TODO : testes update e destroy e Serializer depois jobs(emails de boas vindas)
   def index
     lister = TravelManager::Lister.new(filters)
-    render json: lister.list
+    render json: lister.build
   end
 
   def create
     creator = TravelManager::Creator.new(travel_params)
-    result = creator.create
+    result = creator.build
     return head :precondition_failed if result.invalid?
     render json: result
   end
