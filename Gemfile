@@ -8,6 +8,7 @@ gem 'httparty'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.3'
 gem 'ransack'
+gem 'sidekiq'
 gem 'sqlite3', '~> 1.4'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
