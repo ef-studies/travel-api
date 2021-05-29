@@ -5,6 +5,12 @@ module TravelManager
     end
 
     def build
+      destroy
+    end
+
+    private
+
+    def destroy
       travel = Travel.find(@id)
       travel.destroy
     end
