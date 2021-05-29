@@ -1,3 +1,8 @@
 Rails.application.routes.draw do
-  resources :travels, only: [:index, :create, :update, :destroy]
+
+  namespace :api do
+    namespace :v0 do
+      resources :travels, only: [:index, :create, :update, :destroy]
+    end
+  end
 end

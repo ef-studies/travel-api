@@ -1,4 +1,4 @@
-class TravelsController < ApplicationController
+class Api::V0::TravelsController < ApplicationController
 #TODO : testes update e destroy e Serializer depois jobs(emails de boas vindas)
   def index
     lister = TravelManager::Lister.new(filters)
