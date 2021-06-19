@@ -1,4 +1,4 @@
-describe TravelsController, type: :controller do
+describe Api::V0::TravelsController, type: :controller do
   before { post 'create', params: params }
   let(:result) { JSON.parse(response.body) }
   context 'when valid params' do
