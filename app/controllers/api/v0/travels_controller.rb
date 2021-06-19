@@ -5,11 +5,13 @@ class Api::V0::TravelsController < ApplicationController
     render json: lister.build
   end
 
+  # TODO : try to retrieve travel object with lister
   def show
     @travel = Travel.find(params[:id])
     render json: @travel
   end
 
+  # TODO : try to retrieve travel object with lister
   def edit
     @travel = Travel.find(params[:id])
     render json: @travel
