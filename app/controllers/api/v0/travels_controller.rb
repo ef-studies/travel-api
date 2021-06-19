@@ -5,6 +5,16 @@ class Api::V0::TravelsController < ApplicationController
     render json: lister.build
   end
 
+  def show
+    @travel = Travel.find(params[:id])
+    render json: @travel
+  end
+
+  def edit
+    @travel = Travel.find(params[:id])
+    render json: @travel
+  end
+
   def create
     creator = TravelManager::Creator.new(travel_params)
     result = creator.build
