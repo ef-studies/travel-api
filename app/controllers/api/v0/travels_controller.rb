@@ -5,6 +5,12 @@ class Api::V0::TravelsController < ApplicationController
     render json: lister.build
   end
 
+  # TODO : try to retrieve travel object with lister
+  def show
+    @travel = Travel.find(params[:id])
+    render json: @travel
+  end
+
   def create
     creator = TravelManager::Creator.new(travel_params)
     result = creator.build
@@ -25,7 +31,7 @@ class Api::V0::TravelsController < ApplicationController
   private
 
   def travel_params
-    params.permit(:destination, :origin, :departure_date, :return_date)
+    params.require(:travel).permit(:destination, :origin, :departure_date, :return_date)
   end
 
   def filters
