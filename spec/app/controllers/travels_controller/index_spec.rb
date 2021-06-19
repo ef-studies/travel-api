@@ -1,4 +1,4 @@
-describe TravelsController, type: :controller do
+describe Api::V0::TravelsController, type: :controller do
   let!(:travel1) { create(:travel) }
   let(:params) { {} }
   let(:result) { JSON.parse(response.body) }
