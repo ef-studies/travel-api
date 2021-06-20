@@ -8,7 +8,7 @@ gem 'httparty'
 gem 'puma', '~> 5.0'
 gem 'rails', '~> 6.1.3'
 gem 'ransack'
-gem 'sqlite3', '~> 1.4'
+gem 'pg', '~> 1.2', '>= 1.2.3'
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 group :development, :test do
